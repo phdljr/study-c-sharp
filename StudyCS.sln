@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyCS2", "StudyCS2\StudyC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemberForms", "MemberForms\MemberForms.csproj", "{9C13E802-CB58-4462-9CD7-DBD4B2575036}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleMVP", "ExampleMVP\ExampleMVP.csproj", "{0EEE9B41-2EB4-4975-B917-A8C32A750FE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9C13E802-CB58-4462-9CD7-DBD4B2575036}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C13E802-CB58-4462-9CD7-DBD4B2575036}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C13E802-CB58-4462-9CD7-DBD4B2575036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EEE9B41-2EB4-4975-B917-A8C32A750FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EEE9B41-2EB4-4975-B917-A8C32A750FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EEE9B41-2EB4-4975-B917-A8C32A750FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EEE9B41-2EB4-4975-B917-A8C32A750FE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

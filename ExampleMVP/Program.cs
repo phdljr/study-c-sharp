@@ -1,4 +1,8 @@
-namespace MemberForms
+using ExampleMVP.Model;
+using ExampleMVP.Presenter;
+using ExampleMVP.View;
+
+namespace ExampleMVP
 {
     internal static class Program
     {
@@ -11,7 +15,13 @@ namespace MemberForms
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MemberLoginForm());
+
+            var view = new LoginForm();
+            var connectionStr = "Data Source=(local);Initial Catalog=pubs;Integrated Security=SSPI;";
+            var model = new LoginModel(connectionStr);
+            var presenter = new LoginPresenter(view, model);
+
+            Application.Run(view);
         }
     }
 }
