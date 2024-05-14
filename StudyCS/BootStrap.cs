@@ -1,30 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Concurrent;
-using System.Data;
-using MySql.Data.MySqlClient;
-
-namespace StudyCS
+﻿namespace StudyCS
 {
     class Program
     {
         static void Main(string[] args)
         {
-            DataSet ds = new DataSet();
-            const string str = "Server=localhost,3306;Database=test;Uid=root;Pwd=1234;";
-            using (MySqlConnection conn = new MySqlConnection(str))
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO member VALUES (null, 'Tom')", conn);
-                cmd.ExecuteNonQuery();
+            List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, };
+            var evenNumbers = from num in numbers
+                              where num % 2 == 0
+                              select num;
 
-                string sql = "SELECT * FROM member";
-                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
-                adpt.Fill(ds);
-            }
-
-            foreach (DataRow r in ds.Tables[0].Rows)
+            foreach (var number in evenNumbers)
             {
-                Console.WriteLine(r["Name"]);
+                Console.WriteLine(number);
             }
         }
     }
