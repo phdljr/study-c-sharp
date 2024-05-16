@@ -15,12 +15,12 @@ namespace ExampleMVP.Model
             this.connectionString = connectionString;
         }
 
-        public bool ValidateUser(string username, string password)
+        public bool Login(string username, string password)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT COUNT(*) FROM TB_MEMBER WHERE id = @username AND password = @password";
+                string query = "SELECT COUNT(*) FROM TB_MEMBER WHERE username = @username AND password = @password";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@username", username);

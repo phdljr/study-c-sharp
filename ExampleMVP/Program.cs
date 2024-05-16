@@ -1,6 +1,7 @@
 using ExampleMVP.Model;
 using ExampleMVP.Presenter;
 using ExampleMVP.View;
+using System.Configuration;
 
 namespace ExampleMVP
 {
@@ -12,14 +13,17 @@ namespace ExampleMVP
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            var connectionStr = ConfigurationManager.ConnectionStrings["AppDbContext"].ConnectionString;
+
             var view = new LoginForm();
-            var connectionStr = "Data Source=(local);Initial Catalog=pubs;Integrated Security=SSPI;";
             var model = new LoginModel(connectionStr);
             var presenter = new LoginPresenter(view, model);
+
+            var signUpView = new SignUpForm();
+            var signUpModel = new SignUpModel(connectionStr);
+            var signUpPresenter = new SignUpPresenter(signUpView, signUpModel);
 
             Application.Run(view);
         }

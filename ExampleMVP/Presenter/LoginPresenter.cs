@@ -18,14 +18,20 @@ namespace ExampleMVP.Presenter
             this.view = view;
             this.model = model;
             this.view.LoginAttempt += OnLoginAttempt;
+            this.view.SignUpNavigate += OnSignUpAttempt;
+        }
+
+        private void OnSignUpAttempt(object? sender, EventArgs e)
+        {
+            view.NavigateToSignUpForm();
         }
 
         private void OnLoginAttempt(object sender, EventArgs eventArgs)
         {
-            string username = view.Id;
+            string username = view.Username;
             string password = view.Password;
 
-            if(model.ValidateUser(username, password))
+            if(model.Login(username, password))
             {
                 view.NavigateToMainForm();
             }

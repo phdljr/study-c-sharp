@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ExampleMVP.View
 {
-    internal interface ILoginView
+    internal interface ISignUpView
     {
-        public event EventHandler LoginAttempt;
-        public event EventHandler SignUpNavigate;
+        public event EventHandler SignUpAttempt;
+        public event EventHandler LoginNavigate;
         public string Username { get; }
         public string Password { get; }
+        public string ConfirmPassword { get; }
         void ShowMessage(string message);
-        void NavigateToMainForm();
-        void NavigateToSignUpForm();
+        void NavigateToLoginForm();
     }
 }
