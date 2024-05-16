@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,12 @@ namespace ExampleMVP
         {
             InitializeComponent();
             this.signUpPresenter = new SignUpPresenter(this);
+            Debug.WriteLine("회원가입 폼 생성");
+        }
+
+        ~SignUpForm() 
+        {
+            Debug.WriteLine("회원가입 폼 삭제");
         }
 
         public void ShowMessage(string message)
@@ -39,8 +46,7 @@ namespace ExampleMVP
 
         public void NavigateToLoginForm()
         {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            Program.loginForm.Show();
             this.Hide();
         }
 

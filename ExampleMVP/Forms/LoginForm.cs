@@ -1,6 +1,7 @@
 using ExampleMVP.Model;
 using ExampleMVP.Presenter;
 using ExampleMVP.View;
+using System.Diagnostics;
 
 namespace ExampleMVP
 {
@@ -20,6 +21,12 @@ namespace ExampleMVP
         {
             InitializeComponent();
             this.loginPresenter = new LoginPresenter(this);
+            Debug.WriteLine("로그인 폼 생성");
+        }
+
+        ~LoginForm() 
+        {
+            Debug.WriteLine("로그인 폼 삭제");
         }
 
         public void ShowMessage(string message)
@@ -29,15 +36,13 @@ namespace ExampleMVP
 
         public void NavigateToMainForm()
         {
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
+            Program.mainForm.Show();
             this.Hide();
         }
 
         public void NavigateToSignUpForm()
         {
-            SignUpForm signUpForm = new SignUpForm();
-            signUpForm.Show();
+            Program.signUpForm.Show();
             this.Hide();
         }
 
