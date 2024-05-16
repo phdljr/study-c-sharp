@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExampleMVP.Model
 {
     internal class LoginModel
     {
         private readonly string connectionString;
-        public LoginModel(string connectionString) 
+        public LoginModel() 
         {
-            this.connectionString = connectionString;
+            this.connectionString = ConfigurationManager.ConnectionStrings["AppDbContext"].ConnectionString;
         }
 
         public bool Login(string username, string password)

@@ -1,6 +1,7 @@
 ﻿using ExampleMVP.CustomException;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,9 @@ namespace ExampleMVP.Model
     internal class SignUpModel
     {
         private readonly string connectionString;
-        public SignUpModel(string connectionString)
+        public SignUpModel()
         {
-            this.connectionString = connectionString;
+            this.connectionString = ConfigurationManager.ConnectionStrings["AppDbContext"].ConnectionString;
         }
 
         public bool SignUp(string username, string password, string confirmPassword)
@@ -24,14 +25,14 @@ namespace ExampleMVP.Model
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT COUNT(*) FROM TB_MEMBER WHERE username = @username AND password = @password";
+                string query = "INSERT INTO TB_MEMBER VALUES(@username, @password)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@password", password);
+                    command.Parameters.Add(new SqlParameter("@Username", username));
+                    command.Parameters.Add(new SqlParameter("@Password", password));
 
-                    int userCount = (int)command.ExecuteScalar();
-                    return userCount > 0;
+                    int result = command.ExecuteNonQuery();
+                    return result > 0;
                 }
             }
         }

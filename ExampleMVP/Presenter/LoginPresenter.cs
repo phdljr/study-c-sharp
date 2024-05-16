@@ -13,10 +13,10 @@ namespace ExampleMVP.Presenter
         private readonly ILoginView view;
         private readonly LoginModel model;
 
-        public LoginPresenter(ILoginView view, LoginModel model)
+        public LoginPresenter(ILoginView view)
         {
             this.view = view;
-            this.model = model;
+            this.model = new LoginModel();
             this.view.LoginAttempt += OnLoginAttempt;
             this.view.SignUpNavigate += OnSignUpAttempt;
         }
@@ -26,7 +26,7 @@ namespace ExampleMVP.Presenter
             view.NavigateToSignUpForm();
         }
 
-        private void OnLoginAttempt(object sender, EventArgs eventArgs)
+        private void OnLoginAttempt(object? sender, EventArgs eventArgs)
         {
             string username = view.Username;
             string password = view.Password;

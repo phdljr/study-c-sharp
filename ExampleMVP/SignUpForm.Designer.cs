@@ -91,7 +91,6 @@
             Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SignUpForm";
-            FormClosed += btnExit;
             ResumeLayout(false);
             PerformLayout();
         }

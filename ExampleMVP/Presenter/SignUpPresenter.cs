@@ -13,10 +13,10 @@ namespace ExampleMVP.Presenter
         private readonly ISignUpView signUpView;
         private readonly SignUpModel signUpModel;
 
-        public SignUpPresenter(ISignUpView signUpView, SignUpModel signUpModel)
+        public SignUpPresenter(ISignUpView signUpView)
         {
             this.signUpView = signUpView;
-            this.signUpModel = signUpModel;
+            this.signUpModel = new SignUpModel();
             this.signUpView.SignUpAttempt += OnSignUpAttempt;
             this.signUpView.LoginNavigate += OnLoginNavigate;
         }

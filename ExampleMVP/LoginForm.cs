@@ -1,3 +1,4 @@
+using ExampleMVP.Model;
 using ExampleMVP.Presenter;
 using ExampleMVP.View;
 
@@ -5,17 +6,20 @@ namespace ExampleMVP
 {
     public partial class LoginForm : Form, ILoginView
     {
-        public event EventHandler LoginAttempt;
+        public event EventHandler? LoginAttempt;
 
-        public event EventHandler SignUpNavigate;
+        public event EventHandler? SignUpNavigate;
 
         public string Username => txtUsername.Text;
 
         public string Password => txtPassword.Text;
 
+        private readonly LoginPresenter loginPresenter;
+
         public LoginForm()
         {
             InitializeComponent();
+            this.loginPresenter = new LoginPresenter(this);
         }
 
         public void ShowMessage(string message)
@@ -39,12 +43,12 @@ namespace ExampleMVP
 
         private void btnLoginClickHandler(object sender, EventArgs e)
         {
-            LoginAttempt(this, EventArgs.Empty);
+            LoginAttempt?.Invoke(this, EventArgs.Empty);
         }
 
         private void btnSignUpClickHandler(object sender, EventArgs e)
         {
-            SignUpNavigate(this, EventArgs.Empty);
+            SignUpNavigate?.Invoke(this, EventArgs.Empty);
         }
     }
 }

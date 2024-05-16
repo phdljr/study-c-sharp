@@ -14,18 +14,7 @@ namespace ExampleMVP
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-
-            var connectionStr = ConfigurationManager.ConnectionStrings["AppDbContext"].ConnectionString;
-
-            var view = new LoginForm();
-            var model = new LoginModel(connectionStr);
-            var presenter = new LoginPresenter(view, model);
-
-            var signUpView = new SignUpForm();
-            var signUpModel = new SignUpModel(connectionStr);
-            var signUpPresenter = new SignUpPresenter(signUpView, signUpModel);
-
-            Application.Run(view);
+            Application.Run(new LoginForm());
         }
     }
 }
