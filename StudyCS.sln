@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemberForms", "MemberForms\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleMVP", "ExampleMVP\ExampleMVP.csproj", "{0EEE9B41-2EB4-4975-B917-A8C32A750FE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyLINQ2SQL", "StudyLINQ2SQL\StudyLINQ2SQL.csproj", "{F9AFE312-99BB-4829-B1E8-DF4ACB693796}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyLINQ", "StudyLINQ2SQL\StudyLINQ.csproj", "{F9AFE312-99BB-4829-B1E8-DF4ACB693796}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
