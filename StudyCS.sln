@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleMVP", "ExampleMVP\Ex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyLINQ", "StudyLINQ2SQL\StudyLINQ.csproj", "{F9AFE312-99BB-4829-B1E8-DF4ACB693796}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyNetwork", "StudyNetwork\StudyNetwork.csproj", "{6A13CDE2-08CC-45B2-834F-F475297D7E41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpServer", "TcpServer\TcpServer.csproj", "{1EB1526A-A762-4AFB-AAEE-82531201D8BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{F9AFE312-99BB-4829-B1E8-DF4ACB693796}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9AFE312-99BB-4829-B1E8-DF4ACB693796}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9AFE312-99BB-4829-B1E8-DF4ACB693796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A13CDE2-08CC-45B2-834F-F475297D7E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A13CDE2-08CC-45B2-834F-F475297D7E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A13CDE2-08CC-45B2-834F-F475297D7E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A13CDE2-08CC-45B2-834F-F475297D7E41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EB1526A-A762-4AFB-AAEE-82531201D8BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EB1526A-A762-4AFB-AAEE-82531201D8BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EB1526A-A762-4AFB-AAEE-82531201D8BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EB1526A-A762-4AFB-AAEE-82531201D8BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
