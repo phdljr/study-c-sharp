@@ -1,48 +1,45 @@
-﻿public class Test
+﻿using System;
+
+// 부모 클래스
+public class Animal
 {
-    // 델리게이트 선언
-    public delegate void MyDelegate(int num);
-
-    // 위에서 선언한 델리게이트를 멤버 필드로서 사용
-    private MyDelegate myEvent;
-    public event MyDelegate MyEvent
+    // 가상 메서드
+    public virtual void MakeSound()
     {
-        add { MyEvent += value; }
-        remove { MyEvent -= value; }
+        Console.WriteLine("Animal makes a sound");
     }
 
-    public Test()
+    static public void Test()
     {
-        MyEvent += Print1;
-        MyEvent += Print2;
-        MyEvent -= Print1;
-        // event 속성이기 때문에 = 연산자 사용 못함
-        //MyEvent = Print2;
-    }
-
-    public void Print1(int num)
-    {
-        Console.WriteLine(num + " good");
-    }
-
-    public void Print2(int num)
-    {
-        Console.WriteLine(num + " nice");
-    }
-
-    public void OnTest()
-    {
-        myEvent(10);
+        Console.WriteLine("Animal");
     }
 }
 
-public class Program
+// 자식 클래스
+public class Dog : Animal
+{
+    // 부모 클래스의 가상 메서드를 오버라이드
+    public override void MakeSound()
+    {
+        Console.WriteLine("Dog barks");
+    }
+
+    new static public void Test()
+    {
+        Console.WriteLine("Dog");
+    }
+}
+
+class Program
 {
     static void Main(string[] args)
     {
-        Test test = new Test();
-        test.OnTest();
-        //event는 외부에서 호출 못함
-        //test.MyEvent();
+        Dog dog = new Dog();
+        dog.MakeSound(); // Dog barks
+        Dog.Test();
+
+        Animal animal = dog;
+        animal.MakeSound(); // Animal makes a sound
+        animal.Test();
     }
 }
