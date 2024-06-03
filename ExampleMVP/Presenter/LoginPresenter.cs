@@ -19,7 +19,6 @@ namespace ExampleMVP.Presenter
             this.model = new LoginModel();
             this.view.LoginAttempt += OnLoginAttempt;
             this.view.SignUpNavigate += OnSignUpAttempt;
-            view.LoginAttempt();
         }
 
         private void OnSignUpAttempt(object? sender, EventArgs e)

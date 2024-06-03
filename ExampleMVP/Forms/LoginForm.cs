@@ -5,25 +5,6 @@ using System.Diagnostics;
 
 namespace ExampleMVP
 {
-
-    class CSVar
-    {
-        // 상수
-        const int MAX_VALUE;
-
-
-
-        // readonly 필드 
-        readonly int Max;
-        public CSVar()
-        {
-            Max = 1;
-            // 이러면 오류남
-            // MAX_VALUE = 1023
-        }
-
-        //...
-    }
     public partial class LoginForm : Form, ILoginView
     {
         public event EventHandler? LoginAttempt;
@@ -55,13 +36,13 @@ namespace ExampleMVP
 
         public void NavigateToMainForm()
         {
-            Program.mainForm.Show();
+            Program.MyMainForm.Show();
             this.Hide();
         }
 
         public void NavigateToSignUpForm()
         {
-            Program.signUpForm.Show();
+            Program.MySignUpForm.Show();
             this.Hide();
         }
 

@@ -40,6 +40,5 @@ class Program
 
         Animal animal = dog;
         animal.MakeSound(); // Animal makes a sound
-        animal.Test();
     }
 }

@@ -7,9 +7,9 @@ namespace ExampleMVP
 {
     internal static class Program
     {
-        public static readonly LoginForm loginForm = new LoginForm();
-        public static readonly SignUpForm signUpForm = new SignUpForm();
-        public static readonly MainForm mainForm = new MainForm();
+        public static readonly LoginForm MyLoginForm = new LoginForm();
+        public static readonly SignUpForm MySignUpForm = new SignUpForm();
+        public static readonly MainForm MyMainForm = new MainForm();
 
         /// <summary>
         ///  The main entry point for the application.
@@ -18,7 +18,7 @@ namespace ExampleMVP
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(loginForm);
+            Application.Run(MyLoginForm);
         }
     }
 }

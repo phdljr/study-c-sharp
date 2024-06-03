@@ -46,7 +46,7 @@ namespace ExampleMVP
 
         public void NavigateToLoginForm()
         {
-            Program.loginForm.Show();
+            Program.MyLoginForm.Show();
             this.Hide();
         }
 
