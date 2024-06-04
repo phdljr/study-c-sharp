@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TcpServer", "TcpServer\TcpS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyAsync", "StudyAsync\StudyAsync.csproj", "{95483841-3710-4742-BE44-264FFC36235E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyIO", "StudyIO\StudyIO.csproj", "{3166F849-6E3A-4036-BFEB-68D091F82CD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyIO", "StudyIO\StudyIO.csproj", "{3166F849-6E3A-4036-BFEB-68D091F82CD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCOM", "TestCOM\TestCOM.csproj", "{C46F75A4-7907-4B7E-A20C-B6E88242401B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{3166F849-6E3A-4036-BFEB-68D091F82CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3166F849-6E3A-4036-BFEB-68D091F82CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3166F849-6E3A-4036-BFEB-68D091F82CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46F75A4-7907-4B7E-A20C-B6E88242401B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46F75A4-7907-4B7E-A20C-B6E88242401B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46F75A4-7907-4B7E-A20C-B6E88242401B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46F75A4-7907-4B7E-A20C-B6E88242401B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
