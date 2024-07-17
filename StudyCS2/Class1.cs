@@ -1,56 +1,84 @@
-﻿//#define Test
-
-using System;
+﻿using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace StudyCS2
+public class Reactor
 {
+    private List<Socket> _sockets = new List<Socket>();
+    private Dictionary<Socket, Action<Socket>> _handlers = new Dictionary<Socket, Action<Socket>>();
 
-    class Point
+    public void RegisterHandler(Socket socket, Action<Socket> handler)
     {
-        public int x = 1;
-        public int y = 2;
-
-        public Point(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-
-        public override string? ToString()
-        {
-            return $"{x}, {y}";
-        }
+        _sockets.Add(socket);
+        _handlers[socket] = handler;
     }
 
-    class Program
+    public void Run()
     {
-        static void Main(string[] args)
+        while (true)
         {
-            Point p = new(1, 2);
-            var list = new List<Point>();
-            var bList = new BindingList<Point>();
-            list.Add(p);
-            bList.Add(p);
+            var readList = new ArrayList(_sockets);
+            var writeList = new ArrayList();
+            var errorList = new ArrayList(_sockets);
 
-            Console.WriteLine(string.Join("", list));
-            Console.WriteLine(string.Join("", bList));
+            Socket.Select(readList, writeList, errorList, 10000000);
+            Console.WriteLine("select");
 
-            p.x = 2;
+            foreach (Socket socket in readList)
+            {
+                if (_handlers.TryGetValue(socket, out var handler))
+                {
+                    handler(socket);
+                }
+            }
 
-            Console.WriteLine(string.Join("", list));
-            Console.WriteLine(string.Join("", bList));
+            foreach (Socket socket in errorList)
+            {
+                _sockets.Remove(socket);
+                _handlers.Remove(socket);
+                socket.Close();
+            }
         }
+    }
+}
 
-        [Conditional("Test")]
-        static void Test(string message)
+public class Program
+{
+    public static void Main()
+    {
+        Reactor reactor = new Reactor();
+
+        // 서버 소켓 설정
+        Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        serverSocket.Bind(new IPEndPoint(IPAddress.Any, 11000));
+        serverSocket.Listen(10);
+
+        reactor.RegisterHandler(serverSocket, (socket) =>
         {
-            Console.WriteLine($"{message}");
+            Socket clientSocket = socket.Accept();
+            Console.WriteLine("Client connected.");
+            reactor.RegisterHandler(clientSocket, HandleClient);
+        });
+
+        reactor.Run();
+    }
+
+    private static void HandleClient(Socket clientSocket)
+    {
+        byte[] buffer = new byte[1024];
+        int bytesRead = clientSocket.Receive(buffer);
+
+        if (bytesRead > 0)
+        {
+            string receivedText = System.Text.Encoding.UTF8.GetString(buffer, 0, bytesRead);
+            Console.WriteLine("Received: " + receivedText);
+            clientSocket.Send(System.Text.Encoding.UTF8.GetBytes("Echo: " + receivedText));
+        }
+        else
+        {
+            clientSocket.Close();
         }
     }
 }

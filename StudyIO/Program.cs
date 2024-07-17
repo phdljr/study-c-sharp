@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net.Sockets;
+using System.Net;
 
 // 부모 클래스
 public class Animal
@@ -34,11 +36,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Dog dog = new Dog();
-        dog.MakeSound(); // Dog barks
-        Dog.Test();
-
-        Animal animal = dog;
-        animal.MakeSound(); // Animal makes a sound
+        var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        socket.Connect(new IPEndPoint(IPAddress.Loopback, 11000));
+        socket.Send(System.Text.Encoding.UTF8.GetBytes("Hello!"));
+        Thread.Sleep(3000);
+        socket.Close();
     }
 }

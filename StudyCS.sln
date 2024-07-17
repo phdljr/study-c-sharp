@@ -21,7 +21,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyAsync", "StudyAsync\St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyIO", "StudyIO\StudyIO.csproj", "{3166F849-6E3A-4036-BFEB-68D091F82CD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCOM", "TestCOM\TestCOM.csproj", "{C46F75A4-7907-4B7E-A20C-B6E88242401B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCOM", "TestCOM\TestCOM.csproj", "{C46F75A4-7907-4B7E-A20C-B6E88242401B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1EB1526A-A762-4AFB-AAEE-82531201D8BD} = {1EB1526A-A762-4AFB-AAEE-82531201D8BD}
+		{6A13CDE2-08CC-45B2-834F-F475297D7E41} = {6A13CDE2-08CC-45B2-834F-F475297D7E41}
+		{F9AFE312-99BB-4829-B1E8-DF4ACB693796} = {F9AFE312-99BB-4829-B1E8-DF4ACB693796}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyControlLayout", "StudyControlLayout\StudyControlLayout.csproj", "{BE51A666-EF65-4E48-8676-3B615E0872A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +76,10 @@ Global
 		{C46F75A4-7907-4B7E-A20C-B6E88242401B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C46F75A4-7907-4B7E-A20C-B6E88242401B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C46F75A4-7907-4B7E-A20C-B6E88242401B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE51A666-EF65-4E48-8676-3B615E0872A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE51A666-EF65-4E48-8676-3B615E0872A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE51A666-EF65-4E48-8676-3B615E0872A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE51A666-EF65-4E48-8676-3B615E0872A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

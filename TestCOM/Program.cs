@@ -1,9 +1,1 @@
-﻿
-
-namespace TestCOM
-{
-    public class Program
-    {
-
-    }
-}
+﻿Console.WriteLine(DateTime.Now);

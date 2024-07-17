@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             textBox1 = new TextBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -39,11 +40,21 @@
             textBox1.Size = new Size(813, 21);
             textBox1.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(334, 205);
+            label1.Name = "label1";
+            label1.Size = new Size(43, 14);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
+            // 
             // MemberLoginForm
             // 
             AutoScaleDimensions = new SizeF(6F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(813, 520);
+            Controls.Add(label1);
             Controls.Add(textBox1);
             Font = new Font("D2Coding", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 129);
             Name = "MemberLoginForm";
@@ -56,5 +67,6 @@
         #endregion
 
         private TextBox textBox1;
+        private Label label1;
     }
 }
